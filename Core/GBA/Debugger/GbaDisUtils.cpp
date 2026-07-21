@@ -961,7 +961,7 @@ EffectiveAddressInfo GbaDisUtils::GetEffectiveAddress(DisassemblyInfo& info, Gba
 				uint8_t rn = (opCode >> 16) & 0x0F;
 				return { (int)state.R[rn], 0, true, MemoryType::GbaMemory };
 			}
-			
+
 			case ArmOpCategory::InvalidOp:
 				return {};
 		}
@@ -1170,7 +1170,7 @@ CdlFlags::CdlFlags GbaDisUtils::GetOpFlags(uint32_t opCode, uint8_t flags, uint3
 
 	if((prevPc <= 0x3FFF) && (pc > 0x3FFF)) {
 		// don't create label if returning from BIOS to prevent label clutter
-		return CdlFlags::None;	
+		return CdlFlags::None;
 	}
 
 	if(IsJumpToSub(opCode, flags)) {
